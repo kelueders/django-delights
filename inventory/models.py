@@ -10,7 +10,7 @@ class Ingredient(models.Model):
 class MenuItem(models.Model):
     title = models.CharField(max_length=30)
     price = models.FloatField(default=0)
-    image = models.URLField()
+    image = models.URLField(null=True)
 
 class RecipeRequirement(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
