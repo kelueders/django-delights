@@ -1,0 +1,15 @@
+{% extends './base.html' %}
+{% block content %}
+<h2>Menu</h2>
+<table id="menuitems">
+    <tr>
+        <th>Menu Item</th>
+        <th>Price</th>
+    </tr>
+    {% for menuitem in menuitem_list %}
+    <tr>
+        <td>{{ menuitem.title }}</td>
+        <td>{{ menuitem.price }}</td>
+    </tr>
+    {% endfor %}
+{% endblock %}
