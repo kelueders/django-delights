@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),      
-    path('', include(('inventory.urls', 'inventory'), namespace='inventory'))  # could add 'inventory/' to path if there were multiple apps in this project with similar template names
+    path('', include('inventory.urls'))  # could add 'inventory/' to path if there were multiple apps in this project with similar template names
 ]

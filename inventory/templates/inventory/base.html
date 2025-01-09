@@ -6,9 +6,16 @@
 <title>Django Delights</title>
 </head>
 <body>
-<a href="{% url 'inventory:home' %}"><h1>Home</h1></a>
-<h3>Welcome to the Django Delights Inventory Management System (DDIMS)</h3>
+<div>
+    <a href="{% url 'inventory:home' %}">Home</a>
+    <a href="{% url 'inventory:menuitem-list' %}">Menu</a>
+    <a href="{% url 'inventory:ingredient-list' %}">Inventory</a>
+    <a href="{% url 'inventory:purchase-list' %}">Purchases</a>
+</div>
+<div>
+    <h3>Welcome to the Django Delights Inventory Management System (DDIMS)</h3>
     {% block content %}
     {% endblock %}
+</div>
 </body>
 </html>
