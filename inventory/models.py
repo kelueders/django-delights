@@ -27,7 +27,7 @@ class RecipeRequirement(models.Model):
         return f"{self.ingredient} required for the menu item {self.menu_item}"
 
 class Purchase(models.Model):
-    timestamp = models.DateTimeField(auto_now_add=False)
+    timestamp = models.DateTimeField(auto_now_add=True)
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
 
     def __str__(self):
