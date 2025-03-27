@@ -1,12 +1,11 @@
 {% extends './base.html' %}
 {% block content %}
-<h2>Delete Ingredient</h2>
+<h2>Update Ingredient</h2>
 <form method="post">
 <div>
   {% csrf_token %}
-  <p>Are you sure you want to delete "{{ object }}"?</p>
+  {{ form.as_p }}
   <input type="submit" value="Confirm" />
-  <button type="button" onclick="history.back()">Cancel</button>
 </div>
 </form>
 {% endblock %}
