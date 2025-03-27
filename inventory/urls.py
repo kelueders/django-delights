@@ -10,5 +10,8 @@ urlpatterns = [
     path("ingredient/update/<pk>", views.IngredientUpdate.as_view(), name="ingredient-update"),
     path("ingredient/delete/<pk>", views.IngredientDelete.as_view(), name="ingredient-delete"),
     path("menuitem/list", views.MenuItemList.as_view(), name="menuitem-list"),
+    path("menuitem/create", views.MenuItemCreate.as_view(), name="menuitem-create"),
+    path("menuitem/update/<pk>", views.MenuItemUpdate.as_view(), name="menuitem-update"),
+    path("menuitem/delete/<pk>", views.MenuItemDelete.as_view(), name="menuitem-delete"),
     path("purchase/list", views.PurchaseList.as_view(), name="purchase-list")
 ]

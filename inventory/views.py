@@ -4,7 +4,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 from .models import Ingredient, MenuItem, RecipeRequirement, Purchase
-from .forms import IngredientCreate, IngredientUpdate
+from .forms import IngredientCreate, IngredientUpdate, MenuItemCreate, MenuItemUpdate
 
 # Create your views here.
 def home(request):
@@ -24,7 +24,6 @@ class IngredientUpdate(UpdateView):
     model = Ingredient
     template_name = "inventory/ingredient_update_form.html"
     form_class = IngredientUpdate
-    # fields = ["name", "quantity", "unit", "unit_price"]
     success_url = reverse_lazy('inventory:ingredient-list')
 
 class IngredientDelete(DeleteView):
@@ -35,6 +34,23 @@ class IngredientDelete(DeleteView):
 # MENU ITEM VIEWS
 class MenuItemList(ListView):
     model = MenuItem
+
+class MenuItemCreate(CreateView):
+    model = MenuItem
+    template_name = "inventory/menuitem_create_form.html"
+    form_class = MenuItemCreate
+    success_url = reverse_lazy('inventory:menuitem-list')
+
+class MenuItemUpdate(UpdateView):
+    model = MenuItem
+    template_name = "inventory/menuitem_update_form.html"
+    form_class = MenuItemUpdate
+    success_url = reverse_lazy('inventory:menuitem-list')
+
+class MenuItemDelete(DeleteView):
+    model = MenuItem
+    template_name = "inventory/ingredient_delete_form.html"
+    success_url = reverse_lazy('inventory:ingredient-list')
 
 # PURCHASE VIEWS
 class PurchaseList(ListView):
