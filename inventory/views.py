@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
@@ -78,3 +78,33 @@ class PurchaseDelete(DeleteView):
     model = Purchase
     template_name = "inventory/purchase_delete_form.html"
     success_url = reverse_lazy('inventory:purchase-list')
+
+'''
+RECIPE REQUIREMENT VIEWS
+'''
+class RecipeRequirementList(View):
+    def get(self, request):
+        menu_items = MenuItem.objects.all()
+        print(menu_items)
+        full_menu_ingredient_list = []
+        for menu_item in menu_items:
+            required_ingredients = RecipeRequirement.objects.filter(menu_item=menu_item)
+            full_menu_ingredient_list.append({
+                'menu_item': menu_item,
+                'ingredients': required_ingredients
+            })
+        print(full_menu_ingredient_list)
+        return render(request, 'inventory/recipereq_list.html', {'full_menu_ingredient_list': full_menu_ingredient_list})
+    
+'''
+OTHER VIEWS
+'''
+class FinancialReport(View):
+    def get_revenue(self):
+        pass
+
+    def get_cost(self):
+        pass
+
+    def get_profit(self):
+        pass

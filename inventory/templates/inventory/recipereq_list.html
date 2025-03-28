@@ -1,0 +1,20 @@
+{% extends './base.html' %}
+{% block content %}
+<h2>Ingredients Required for Each Menu Item</h2>
+{% comment %} The template receives a list of dicts with keys 'menu_items' and 'ingredients' corresponding 
+to the MenuItem object and the Queryset containing the RecipeRequirement (ingredients) for that menu item, respectively{% endcomment %}
+{% for menu_item_data in full_menu_ingredient_list %} 
+<h4>{{ menu_item_data.menu_item.title }}</h4>
+<table>
+    {% for ingredient in menu_item_data.ingredients %}
+    <tr>
+        <td>{{ ingredient.ingredient.name }}</td>
+        <td>{{ ingredient.quantity }}</td>
+        {% comment %} <td><a href="{% url 'inventory:recipereq-update' recipereq.id %}"><button>Update</button></a></td>
+        <td><a href="{% url 'inventory:recipereq-delete' recipereq.id %}"><button>Delete</button></a></td> {% endcomment %}
+    </tr>
+    {% endfor %}
+</table>
+{% endfor %}
+{% comment %} <div><a href="{% url 'inventory:recipereq-create' %}"><button>Add new recipe requirement</button></a></div> {% endcomment %}
+{% endblock %}
