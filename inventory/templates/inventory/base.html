@@ -2,22 +2,25 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../../static/inventory/style.css">
+{% load static %}
+<link rel="stylesheet" href="{% static 'inventory/style.css' %}">
 <title>Django Delights</title>
 </head>
 <body>
-<div>
-    <a href="{% url 'inventory:home' %}">Home</a>
-    <a href="{% url 'inventory:menuitem-list' %}">Menu</a>
-    <a href="{% url 'inventory:ingredient-list' %}">Inventory</a>
-    <a href="{% url 'inventory:purchase-list' %}">Purchases</a>
-    <a href="{% url 'inventory:recipereq-list' %}">Recipe Requirements</a>
-    <a href="{% url 'inventory:financial-report' %}">Financial Report</a>
-</div>
-<div>
-    <h3>Welcome to the Django Delights Inventory Management System (DDIMS)</h3>
-    {% block content %}
-    {% endblock %}
-</div>
+    <header>
+        <nav>
+            <a href="{% url 'inventory:home' %}">Home</a>
+            <a href="{% url 'inventory:menuitem-list' %}">Menu</a>
+            <a href="{% url 'inventory:ingredient-list' %}">Inventory</a>
+            <a href="{% url 'inventory:purchase-list' %}">Purchases</a>
+            <a href="{% url 'inventory:recipereq-list' %}">Recipe Requirements</a>
+            <a href="{% url 'inventory:financial-report' %}">Financial Report</a>
+        </nav>
+        <h3>Welcome to the Django Delights Inventory Management System (DDIMS)</h3>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
 </body>
 </html>

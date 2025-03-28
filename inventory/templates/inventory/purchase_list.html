@@ -1,10 +1,12 @@
 {% extends './base.html' %}
 {% block content %}
 <h2>Purchases List</h2>
-<table id="purchases">
+<table id="purchases" class="table">
     <tr>
         <th>Menu Item</th>
         <th>Time of Purchase</th>
+        <th>Update</th>
+        <th>Delete</th>
     </tr>
     {% for purchase in purchase_list %}
     <tr>

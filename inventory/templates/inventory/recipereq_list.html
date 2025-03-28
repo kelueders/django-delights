@@ -4,12 +4,15 @@
 {% comment %} The template receives a list of dicts with keys 'menu_items' and 'ingredients' corresponding 
 to the MenuItem object and the Queryset containing the RecipeRequirement (ingredients) for that menu item, respectively{% endcomment %}
 {% for menu_item_data in full_menu_ingredient_list %} 
-<h4>{{ menu_item_data.menu_item.title }}</h4>
-<table>
+<table class="table" id="recipereq">
+    <tr>
+        <th>{{ menu_item_data.menu_item.title }}</th>
+        <th>Quantity</th>
+    </tr>
     {% for ingredient in menu_item_data.ingredients %}
     <tr>
         <td>{{ ingredient.ingredient.name }}</td>
-        <td>{{ ingredient.quantity }}</td>
+        <td>{{ ingredient.quantity }} {{ingredient.ingredient.unit}} </td>
         {% comment %} <td><a href="{% url 'inventory:recipereq-update' recipereq.id %}"><button>Update</button></a></td>
         <td><a href="{% url 'inventory:recipereq-delete' recipereq.id %}"><button>Delete</button></a></td> {% endcomment %}
     </tr>
