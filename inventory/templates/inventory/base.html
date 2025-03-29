@@ -4,19 +4,20 @@
 <meta charset="UTF-8">
 {% load static %}
 <link rel="stylesheet" href="{% static 'inventory/style.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <title>Django Delights</title>
 </head>
 <body>
     <header>
+        <h3>Django Delights Inventory Management System (DDIMS)</h3>
         <nav>
             <a href="{% url 'inventory:home' %}">Home</a>
-            <a href="{% url 'inventory:menuitem-list' %}">Menu</a>
-            <a href="{% url 'inventory:ingredient-list' %}">Inventory</a>
+            <a href="{% url 'inventory:menuitem-list' %}"><i class="fa fa-utensils"></i> Menu</a>
+            <a href="{% url 'inventory:recipereq-list' %}">Recipes</a>
+            <a href="{% url 'inventory:ingredient-list' %}"><i class="fa-solid fa-carrot"></i> Inventory</a>
             <a href="{% url 'inventory:purchase-list' %}">Purchases</a>
-            <a href="{% url 'inventory:recipereq-list' %}">Recipe Requirements</a>
             <a href="{% url 'inventory:financial-report' %}">Financial Report</a>
         </nav>
-        <h3>Welcome to the Django Delights Inventory Management System (DDIMS)</h3>
     </header>
     <main>
         {% block content %}
